@@ -40,7 +40,7 @@ const languageToModeMap = {
   [CodeLanguage.Cpp]: "c",
   [CodeLanguage.C]: "c",
   [CodeLanguage.Java]: "java",
-  [CodeLanguage.CSharp]: "cs"
+  // [CodeLanguage.CSharp]: "cs"
 };
 
 export function isLanguageSupported(language: CodeLanguage) {

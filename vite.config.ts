@@ -14,6 +14,8 @@ import publicPath from "vite-plugin-public-path";
 import { viteExternalsPlugin as externals } from "vite-plugin-externals";
 import { visualizer } from "rollup-plugin-visualizer";
 
+import compression from "vite-plugin-compression";
+
 // Node polyfill
 import { NodeModulesPolyfillPlugin } from "@esbuild-plugins/node-modules-polyfill";
 import rollupNodePolyFill from "rollup-plugin-node-polyfills";
@@ -148,6 +150,11 @@ export default defineConfig({
     port: 3000
   },
   plugins: [
+    compression({
+      ext: ".gz",            // 生成 .gz 文件
+      algorithm: "gzip",     // 压缩算法
+      deleteOriginFile: false // 是否删除源文件
+    }),
     react({
       babel: {
         plugins: [["@babel/plugin-proposal-decorators", { legacy: true }], ["@babel/plugin-proposal-class-properties"]]
